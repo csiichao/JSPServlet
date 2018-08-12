@@ -20,7 +20,7 @@ public class UploadServlet extends HttpServlet {
 		//请求参数
 		byte[] body = readBody(request);
 		//取得所有Body内容的字符串表示
-		String textBody = new String(body, "ISO-8859-1");
+		String textBody = new String(body, "UTF-8");
 		//取得上传的文件名称
 		String filename = getFilename(textBody);
 		//取得文件开始于结束位置
@@ -67,7 +67,7 @@ public class UploadServlet extends HttpServlet {
 	}
 
 	private String getFilename(String reqBOdy) {
-		String filename = reqBOdy.substring(reqBOdy.indexOf("filename=\"" + 10));
+		String filename = reqBOdy.substring(reqBOdy.indexOf("filename=\"") + 10);
 		filename =filename.substring(0, filename.indexOf("\n"));
 		filename = filename.substring(filename.lastIndexOf("\\") + 1, filename.indexOf("\""));
 		return filename;
@@ -75,7 +75,7 @@ public class UploadServlet extends HttpServlet {
 
 
 	private void writeTo(String filename, byte[] body, Position p) throws FileNotFoundException,IOException {
-		FileOutputStream fileOutputStream = new FileOutputStream("E:/workspace/eclipse/jspServlet" + filename );
+		FileOutputStream fileOutputStream = new FileOutputStream("E:workspace/eclipse/jspServlet/" + filename );
 		fileOutputStream.write(body, p.begin, (p.end - p.begin));
 		fileOutputStream.flush();
 		fileOutputStream.close();
