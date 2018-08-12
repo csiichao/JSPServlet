@@ -32,6 +32,7 @@ public class BodyServlet extends HttpServlet {
     out.println(body);
     out.println("</body>");
     out.println("</html>");
+    
 	}
 
 
