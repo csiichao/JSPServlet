@@ -23,7 +23,8 @@
 	Enter passphrase (empty for no passphrase):<enter a passphrase>  
 	#提示重新输入以便确认输入是否正确  
 	> Enter same passphrase again:<enter passphrase again> 
-# 将SSH key在github配置秘钥
-	- 路径：~/.ssh/id_rsa.pub
-# 验证秘钥是否正确
-	> ssh -T git@github.com  
+# 将SSH key在github配置秘钥  
+- 路径：~/.ssh/id_rsa.pub
+# 验证秘钥是否正确 
+> ssh -T git@github.com  
+	
