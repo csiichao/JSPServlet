@@ -28,7 +28,36 @@
 # 验证秘钥是否正确 
 > ssh -T git@github.com  
 #代码push及pull	
-- git remote add——添加远程仓库  
-	- git remote add origin（标识符） 仓库路径  
+- git remote add——添加远程仓库，相当于连接关联本地与远程仓库  
+	- 添加远程仓库：git remote add origin（标识符） 仓库路径
+	- 关联本地与远程仓库：git branch --set-upstream-to=origin/remote_branch  your_branch
+# 先更新后提交
+- 一般情况下提交代码操作
+	- git init
+	- git add README.md
+	- git commit -m "first commit"
+	- git remote add origin 远程仓库地址
+	- git push -u origin master
+
+- git pull更新：git pull origin master --allow-unrelated-histories  
+执行完提示错误信息：  
+> From github.com:csiichao/JSPServlet
+branch            master     -> FETCH_HEAD
+error: Your local changes to the following files would be overwritten by merge:
+BodyDemo/.classpath
+BodyDemo/.settings/org.eclipse.wst.common.project.facet.core.xml
+BodyDemo/WebContent/upload.html
+> Please commit your changes or stash them before you merge.  
+----上述表示已add但没有commit
+
+> error: The following untracked working tree files would be overwritten by merge:
+BodyDemo/build/classes/cc/openhome/UploadServlet$Position.class
+BodyDemo/build/classes/cc/openhome/UploadServlet.class
+BodyDemo/src/cc/openhome/UploadServlet.java
+README.md
+> Please move or remove them before you merge.  
+----上述表示未add   
+
 - git push——推送至远程仓库  
-	> 切到对应分支执行指令git push -u origin master像这样执行 git push命令，当前分支的内容就会被推送给远程仓库origin 的 master 分支。 -u参数可以在推送的同时，将 origin 仓库的 master 分支设置为本地仓库当前分支的 upstream（上游）。添加了这个参数，将来运行 git pull命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从 origin 的 master 分支获取内容，省去了另外添加参数的麻烦。执行该操作后，当前本地仓库 master 分支的内容将会被推送到  	>GitHub 的远程仓库中。在 GitHub 上也可以确认远程 master 分支的内容，和本地 master 分支相同。
+> 切到对应分支执行指令git push -u origin master像这样执行 git push命令，当前分支的内容就会被推送给远程仓库origin 的 master 分支。 -u参数可以在推送的同时，将 origin 仓库的 master 分支设置为本地仓库当前分支的 upstream（上游）。添加了这个参数，将来运行 git pull命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从 origin 的 master 分支获取内容，省去了另外添加参数的麻烦。执行该操作后，当前本地仓库 master 分支的内容将会被推送到GitHub 的远程仓库中。在 GitHub 上也可以确认远程 master 分支的内容，和本地 master 分支相同。
+	
