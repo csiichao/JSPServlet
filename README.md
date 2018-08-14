@@ -60,4 +60,30 @@ README.md
 
 - git push——推送至远程仓库  
 > 切到对应分支执行指令git push -u origin master像这样执行 git push命令，当前分支的内容就会被推送给远程仓库origin 的 master 分支。 -u参数可以在推送的同时，将 origin 仓库的 master 分支设置为本地仓库当前分支的 upstream（上游）。添加了这个参数，将来运行 git pull命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从 origin 的 master 分支获取内容，省去了另外添加参数的麻烦。执行该操作后，当前本地仓库 master 分支的内容将会被推送到GitHub 的远程仓库中。在 GitHub 上也可以确认远程 master 分支的内容，和本地 master 分支相同。
-	
+
+# 分支操作
+- 查看当前分支的相关信息：  
+	- git branch -a
+- 获取远程的 feature-D 分支
+	- 将 feature-D 分支获取至本地仓库。  
+	指令：git checkout -b feature-D origin/feature-D
+	- 解释：b 参数的后面是本地仓库中新建分支的名称。origin/feature-D，新建分支名称后面是获取来源的分支名称
+- 向本地的feature-D分支提交更改，基于分支操作都需要先切到分支下
+	- 对比差异：git diff
+	- 提交：git commit -am "Add feature-D"
+	- 推送feature-D分支：git push
+	- 获取最新的远程仓库分支：git pull origin feature-D
+	- 帮助大家深入理解 Git 的资料
+	- git 配置忽略文件：touch .gitignore
+	 - Pro Git
+	 - LearnGitBranching
+	 - tryGit	
+- 创建、切换分支：git checkout -b—
+	- 创建名为 feature-A 的分支并切换到分支--git checkout -b -feature-A
+	- 或git branch feature-A（创建分支）---> git checkout feature-A（切换分支）
+	- 切换到 master 分支——git checkout master
+	- 切换回上一个分支——git checkout - 或git checkout 分支名
+- 特性分支
+>特性分支（Topic）顾名思义，是集中实现单一特性（主题），除此之外不进行任何作业的分支。在日常开发中，往往会创建数个特性分支，同时在此之外再保留一个随时可以发布软件的稳定分支。稳定分支的角色通常由 master 分支担当。
+之前我们创建了 feature-A 分支，这一分支主要实现 feature-A，feature-A 的实现之外不进行任何作业。即便在开发过程中发现了 BUG，也需要再创建新的分支，在新分支中进行修正。
+基于特定主题的作业在特性分支中进行，主题完成后再与 master 分支合并。只要保持这样一个开发流程，就能保证 master 分支可以随时供人查看。这样一来，其他开发者也可以放心大胆地从 master 分支创建新的特性分支。
