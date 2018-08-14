@@ -8,8 +8,8 @@
 	  > git config --global user.email "输入你的邮箱"
 
 - 报错及解决
-	- 报错：
-		> warning: LF will be replaced by CRLF in ......  
+	- 报错：在保存文件时，因为"/"
+		> warning: LF will be replaced by CRLF in “文件名”  
 		> The file will have its original line endings in your working directory. 
 	- 解决方法,执行以下指令   
 		> git config --global core.autocrlf false
