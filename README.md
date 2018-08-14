@@ -16,10 +16,10 @@
 # 创建一个新的SSH key
 - 指令：ssh-keygen -t rsa -C "yourEmail"
 - 执行提示及操作
-	> Creates a new ssh key using the provided email Generating public/private rsa key pair.
-	#此处输入将要保存的路径，默认为当前路径
-	Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<press enter>
-	输入回车后提示输入一个类似于密码的自定义的通行证号，如果直接回车则为空
-	Enter passphrase (empty for no passphrase):<enter a passphrase>
-	#提示重新输入以便确认输入是否正确
-	> Enter same passphrase again:<enter passphrase again>
+	> Creates a new ssh key using the provided email Generating public/private rsa key pair.  
+	#此处输入将要保存的路径，默认为当前路径  
+	Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<press enter>  
+	输入回车后提示输入一个类似于密码的自定义的通行证号，如果直接回车则为空  
+	Enter passphrase (empty for no passphrase):<enter a passphrase>  
+	#提示重新输入以便确认输入是否正确  
+	> Enter same passphrase again:<enter passphrase again>  
