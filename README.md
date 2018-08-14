@@ -11,5 +11,6 @@
 	- 报错：
 		> warning: LF will be replaced by CRLF in ......  
 		> The file will have its original line endings in your working directory. 
-	- 解决方法,执行以下指令
-	        > git config --global core.autocrlf false
+	- 解决方法,执行以下指令   
+		> git config --global core.autocrlf false  
+		> The file will have its original line endings in your working directory.
