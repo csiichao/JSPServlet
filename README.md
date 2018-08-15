@@ -118,3 +118,11 @@ README.md
 - git commit --amend——修改提交信息
 	- 会自动打开文本编辑器，最上方进行修改就可以了。
 	- 执行 git log --graph命令，查看修改日志
+- git rebase -i——压缩历史  
+	> 在合并特性分支之前，如果发现已提交的内容中有些许拼写错误等，不妨提交一个修改，然后将这个修改包含到前一个提交之中，压缩成一个历史记录。
+	- git rebase -i HEAD~2，选定当前分支中包含HEAD（最新提交）在内的两个最新历史记录为对象，并在编辑器中打开
+	- git rebase --abort
+	- git rebase -i master~1 #最后一次
+	- git rebase -i master~5 #最后五次
+	- git rebase -i HEAD~3   #当前版本的倒数第三次状态
+	- git rebase -i 32e0a87f #指定的SHA位置
