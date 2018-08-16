@@ -1,0 +1,7 @@
+/.metadata/
+/.recommenders/
+*.class
+/target/
+*.settings
+*/.settings/*
+*.classpath
