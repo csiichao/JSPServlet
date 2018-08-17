@@ -9,14 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/hello.do")
 public class HelloController extends HttpServlet {
-    private HelloModel model = new HelloModel();
-    @Override
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
-                      throws ServletException, IOException {
-        /*
-         * 实作步骤1到4内容
-         * 
-         */
-    }
+	private HelloModel model = new HelloModel();
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		/*
+		 * 实作步骤1到4内容
+		 * 
+		 */
+		String name = request.getParameter("user");
+		String message = model.doHello(name);
+		request.setAttribute("message", message);
+		request.getRequestDispatcher("hello.view")
+			.forward(request, response);
+	}
 }

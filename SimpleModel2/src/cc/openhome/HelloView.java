@@ -9,24 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/hello.view")
 public class HelloView extends HttpServlet {
-    private String htmlTemplate = 
-          "<html>"
-        + "  <head>" 
-        + "    <meta http-equiv='Content-Type'"
-        + "        content='text/html; charset=UTF-8'>"
-        + "    <title>%s</title>" 
-        + "  </head>" 
-        + "  <body>"
-        + "    <h1>%s</h1>" 
-        + "  </body>" 
-        + "</html>";
+	private String htmlTemplate = "<html>" + "  <head>" + "    <meta http-equiv='Content-Type'"
+			+ "        content='text/html; charset=UTF-8'>" + "    <title>%s</title>" + "  </head>" + "  <body>"
+			+ "    <h1>%s</h1>" + "  </body>" + "</html>";
 
-    @Override
-    protected void doGet(HttpServletRequest req,
-            HttpServletResponse resp) throws ServletException, IOException {
-        /*
-         * 实作步骤1到4内容
-         * 
-         */
-    }
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		/*
+		 * 实作步骤1到4内容
+		 * 
+		 */
+		String user = req.getParameter("user");
+		String message = (String) req.getAttribute("message");
+		String html = String.format(htmlTemplate, user, message);
+		resp.getWriter().println(html);
+	}
 }
