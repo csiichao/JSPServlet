@@ -25,10 +25,9 @@ public class Pet extends HttpServlet {
 		out.println("<title>感谢填写</title>");
 		out.println("</head>");
 		out.println("<body>");
+		/* 步骤4 */ 
 		out.println("联络人：<a href='mailto:" +
-		/* 步骤4 */ 
 		request.getParameter("email") +"'>" +
-		/* 步骤4 */ 
 		request.getParameter("user") +"</a>");
 		out.println("<br>喜爱的宠物类型");
 		out.println("<ul>");
