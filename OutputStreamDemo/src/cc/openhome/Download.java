@@ -18,6 +18,11 @@ public class Download extends HttpServlet {
             /*
              * 完成步驟1到4
              */
+        	response.setContentType("application/pdf");
+        	InputStream in = getServletContext().getResourceAsStream(
+        			"/WEB-INF/jdbc.pdf");
+        	OutputStream out = response.getOutputStream();
+        	writeBytes(in, out);
         }
     }
 
